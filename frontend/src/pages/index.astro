@@ -1,0 +1,16 @@
+---
+import Layout from '../Layouts/Layout.astro';
+import { BookList } from '../components/BookList';
+import { BookResponse } from '../types/book';
+
+const BASE_URL = 'http://localhost:1337/api';
+
+const response = await fetch(BASE_URL + '/books');
+const booksResponse = await response.json() as BookResponse;
+const books = booksResponse.data;
+---
+
+<Layout title="Main">
+  <BookList books={books} />
+</Layout>
+

@@ -1,0 +1,40 @@
+---
+import { Book, BookResponse } from '../../types/book';
+import Layout from '../../Layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const BASE_URL = 'http://localhost:1337/api';
+  const response = await fetch(BASE_URL + '/books');
+  const booksResponse = await response.json() as BookResponse;
+  const books = booksResponse.data;
+
+  return books.map((book) => ({
+    params: { id: book.id },
+    props: { book },
+  }));
+}
+
+interface Props {
+  book: Book
+}
+
+const { book } = Astro.props as Props;
+const {attributes: { title, description, author }} = book;
+---
+
+<Layout>
+  <section class="user-info">
+    <h2 class="user-info__title">{title}</h2>
+    <span class="user-info__author">{author}</span>
+    <p class="user-info__description">{description}</p>
+  </section>
+
+  <style lang="scss">
+    .user-info {
+      width: 50%;
+
+      margin-inline: auto;
+      text-align: center;
+    }
+  </style>
+</Layout>

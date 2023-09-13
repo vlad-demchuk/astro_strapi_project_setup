@@ -1,0 +1,40 @@
+{
+  "name": "astro_strapi_project_setup_frontend",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --open",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prettier": "npx prettier . --ignore-path .eslintignore --check",
+    "prettier:fix": "npx prettier . --ignore-path .eslintignore --write",
+    "lint": "npx eslint .  --max-warnings 0",
+    "lint:fix": "npx eslint .  --max-warnings 0 --fix",
+    "check-style": "npm run prettier && npm run lint",
+    "fix-style": "npm run prettier:fix && npm run lint:fix"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "astro": "^3.0.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.66.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,astro}": "npm run check-style"
+  }
+}

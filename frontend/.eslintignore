@@ -1,0 +1,8 @@
+# Ignore the following directories and files
+node_modules
+build
+dist
+
+# Ignore specific file types
+*.log
+*.md

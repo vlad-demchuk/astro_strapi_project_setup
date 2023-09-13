@@ -1,0 +1,16 @@
+{
+  "name": "astro_strapi_project_setup",
+  "version": "1.0.0",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run open-browser\"",
+    "server": "cd backend && npm run develop",
+    "client": "sleep 5 && cd frontend && npm run dev",
+    "open-browser": "sleep 5 && open http://localhost:1337/admin/",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "husky": "^8.0.3"
+  }
+}
