@@ -6,14 +6,13 @@ interface Props {
 }
 
 export const BookItem: React.FC<Props> = ({ book }) => {
-  const {
-    attributes: { title, author },
-  } = book;
+
+  const bookData = book?.attributes;
   return (
     <li className="BookList__item">
-      <span className="BookList__item-title">{`${title} (${author})`}</span>
+      <span className="BookList__item-title">{`${bookData?.title} (${bookData?.author})`}</span>
 
-      <a className="BookList__item-link" href={`/book/${book.id}`}>
+      <a className="BookList__item-link" href={`/book/${book?.id}`}>
         Open description
       </a>
     </li>

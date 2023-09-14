@@ -11,6 +11,10 @@ const books = booksResponse.data;
 ---
 
 <Layout title="Main">
-  <BookList books={books} />
+  {!books || !books.length
+    ? <p>The list is empty</p>
+    : <BookList books={books} />
+  }
+
 </Layout>
 

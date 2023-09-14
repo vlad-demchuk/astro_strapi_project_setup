@@ -12,7 +12,7 @@ export const BookList: React.FC<Props> = ({ books }) => {
     <section className="BookList">
       <ul className="BookList__list">
         {books.map((book) => (
-          <BookItem book={book} key={book.id} />
+          <BookItem book={book} key={book?.id} />
         ))}
       </ul>
     </section>
